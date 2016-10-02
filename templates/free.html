@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="custom.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">BookShare</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <!-- <li><a href="#">Upload</a></li> -->
+                    <!-- <li class="active"><a href="#">Results</a></li> -->
+                    <li><a href="#contact">Help</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                   <!--  <form action="" method="post" enctype="multipart/form-data" id="js-upload-form" class="dark-matter">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <input type="file" name="files[]" id="js-upload-files" enctype='multipart/form-data'>
+                            {% csrf_token %} {{ form.as_p }}
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Submit</button>
+
+                </div>
+                 -->
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <th>name</th>
+                        <th>author</th>
+                        <th>Send Request</th>
+                        <!-- <th>verified_emails</th> -->
+                    </thead>
+                    <tbody>
+                        {% for obj in objects %}
+                        <tr>
+                            <td>{{ obj.name }}</td>
+                            <td>{{ obj.author }}</td>
+                             <td>
+                             <a href="/book_share/request_free" class="button">Free</a>
+                                <!-- <button type="button" class="send_request" data-obj-uid={{ obj.uid }} data-obj-name={{ obj.name }}>Send Request</button> -->
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- <script type="text/javascript"> -->
+    <!-- $(document).ready(function() { -->
+        <!-- $('button.send_request').on('click'<!-- , function() { -->
+            <!-- console.log($(this).attr('data-obj-uid'));
+            console.log($(this).attr('data-obj-name'));
+
+            var data_uid = $(this).attr('data-obj-uid');
+            var data_name = $(this).attr('data-obj-name');
+            window.location.href = encodeURI('/book_share/request_caller' + "?uid=" + data_uid + "&name=" + data_name);
+    
+            })
+    })
+</script> -- -->
+</body>
+</html>
