@@ -582,6 +582,8 @@ h3 {
                             {% csrf_token %} {{ form.as_p }}
                         </div>
 
+                        </form>
+
                         <button type="submit" class="btn btn-sm btn-primary" style="background: #FFCC02;
     border: none;
     padding: 10px 25px 10px 25px;
@@ -594,7 +596,14 @@ h3 {
     box-shadow: 1px 1px 1px #3D3D3D;
     -webkit-box-shadow:1px 1px 1px #3D3D3D;
     -moz-box-shadow:1px 1px 1px #3D3D3D;" id="js-upload-submit">Submit</button>
+                        {% if messages %}
+
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+{% endif %}   
                         <h3>Search for a book</h3>
+
     <a href="/book_share/request" class="button">Search</a>
     <h3> Check your requests </h3>
     <a href="/book_share/request_acceptor" class="button">Requests</a>
@@ -632,14 +641,8 @@ h3 {
         <input type="submit" class="button" value="Send" /> 
     </label>    
  <!--  -->
-     
- </form>
- {% if messages %}
 
-    {% for message in messages %}
-    {{ message }}
-    {% endfor %}
-{% endif %}
+
 </div>
 </body>
 </html>
